@@ -32,8 +32,13 @@ namespace Clock_WPF
 
             //设置窗口比例大小
             this.SizeChanged += MainWindow_SizeChanged;
-            
-            
+
+
+
+            var testData = new PreData() { StudyCount = 5 };
+            AddDataToListView(this.listViewMain,testData);
+
+
         }
 
         private void InitTimer()
@@ -113,6 +118,20 @@ namespace Clock_WPF
             return true;
         }
 
+
+        private void AddDataToListView(ListView item,PreData data)
+        {
+            if (item == null) return;
+
+            List<string> str = new List<string>();
+            str.Add(data.DataName);
+            str.Add(data.AllTime.ToString());
+            str.Add(data.StudyCount.ToString());
+
+            string[] d = str.ToArray();
+
+            item.Items.Add(d);
+        }
         #region Set SystemClock
         private void SetClock(PreData preData)
         {
@@ -164,7 +183,16 @@ namespace Clock_WPF
 
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+           
+        }
 
+        private void InitListView()
+        {
+            listViewMain.Items.Clear();
+            //TODO:读取
+
+
+            //TODO:添加
         }
 
         #endregion

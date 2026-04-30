@@ -9,10 +9,12 @@
     <Grid>
         <Image x:Name="LeftImage" HorizontalAlignment="Left" Height="304" VerticalAlignment="Top" Width="304" Source="/时钟.png" Margin="10,40,0,0"/>
         <Label x:Name="TitleLabel" Content="Label" HorizontalAlignment="Center" VerticalAlignment="Top" Width="800"/>
-        <ListView d:ItemsSource="{d:SampleData ItemCount=5}" Margin="294,59,338,57" SelectionChanged="ListView_SelectionChanged">
+        <ListView Name="listViewMain" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="294,59,338,57" SelectionChanged="ListView_SelectionChanged">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn/>
+                    <GridViewColumn Header="History" Width="50"/>
+                    <GridViewColumn Header="AllTime" Width="50"/>
+                    <GridViewColumn Header="Count" Width="50"/>
                 </GridView>
             </ListView.View>
         </ListView>
